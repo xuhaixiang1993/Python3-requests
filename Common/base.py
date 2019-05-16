@@ -12,6 +12,7 @@ config_path = os.path.join(path, 'Config/config.ini')
 config = configparser.ConfigParser()
 config.read(config_path, encoding='utf-8-sig')
 
+
 class Base(unittest.TestCase):
     """测试基类"""
 
@@ -28,7 +29,7 @@ class Base(unittest.TestCase):
         except BaseException:
             log1.error('请求失败!', exc_info=1)
 
-    def post(self, url, data=None, headers=None, files=None,auth=None):
+    def post(self, url, data=None, headers=None, files=None, auth=None):
         """post请求，返回响应码和响应实体"""
         try:
             r = requests.post(url, data=data, headers=headers,files=files, auth =auth, verify=False, timeout=10)
@@ -50,7 +51,7 @@ class Base(unittest.TestCase):
             log1.info('返回状态码：%d' % status_code)
             response = r.json()
             log1.info('响应实体内容：%s' % response)
-            return status_code,response
+            return status_code, response
         except BaseException:
             log1.error('请求失败!', exc_info=1)
 
@@ -122,19 +123,17 @@ class Base(unittest.TestCase):
             log1.error('可能有非字典嵌套', exc_info=1)
 
     def config_options(self, section):
-        '''读取配置文件某section下所有键'''
-        config = configparser.ConfigParser()
-        config.read(config_path, encoding="utf-8-sig")
+        """读取配置文件某section下所有键"""
         username = config.options(section)
         return username
 
     def get_addkey(self, user):
-        '''遍历获得配置文件收件人email'''
-        sum = 0
+        """遍历获得配置文件收件人email"""
+        sum1 = 0
         L = []
         for i in user:
-            if sum < len(user):
+            if sum1 < len(user):
                 emails = self.config_read('addressed', i)
                 L.append(emails)
-                sum += 1
+                sum1 += 1
         return L
