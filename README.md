@@ -6,7 +6,9 @@ log.py：日志功能实现文件，建议直接在log.py下创建实例来输�
 loginTest.py：日志功能测试文件
 
 
+
 ![配置文件图片](https://github.com/xuhaixiang1993/Python3-requests/blob/master/picture/config.jpg)
+
 2）配置文件
 配置文件已[]括起来的是section，下面已key，value存放配置信息
 test:测试环境的一些参数，项目中接口url，前面一部分地址都是相同的，所以可以把前部分url放在配置文件中。后部分通过方法中参数拼接成该接口的url。这样想要在不同环境跑同一套代码，只需要更改配置文件中的url
