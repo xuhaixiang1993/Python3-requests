@@ -7,5 +7,5 @@
 2）Base.py
 这里是测试基类，封装了对ini配置文件操作，get/post请求，对响应实体的操作，和一起发送邮件时，获取收件人的方法。
 
-	2.1 配置文件操作
-	config_read()：可以传入section，key，url三个参数。当只传入section和key时，返回section对应key的值。当都传入时，
+2.1 配置文件操作
+config_read()：可以传入section，key，url三个参数。当只传入section和key时，返回section对应key的值。当都传入时，
