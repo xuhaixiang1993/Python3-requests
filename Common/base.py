@@ -19,7 +19,7 @@ class Base(unittest.TestCase):
     def get(self, url, params=None, headers=None, files=None, auth=None):
         """get请求，返回响应码和响应实体"""
         try:
-            r = requests.get(url, params=params, headers=headers, files=files, auth=auth, verify=False, timeout=10)
+            r = requests.get(url, params=params, headers=headers, files=files, auth=auth, verify=False, stream=True, timeout=10)
             log1.info('请求实体内容：%s' % params)
             status_code = r.status_code
             log1.info('返回状态码：%d' % status_code)
@@ -89,7 +89,7 @@ class Base(unittest.TestCase):
         except BaseException:
             log1.error('往配置文件中写入报错', exc_info=1)
 
-    def config_delete(self, section, key=None):
+    def config_remove(self, section, key=None):
         """从配置文件中删除"""
         try:
             # 在section下删除key

@@ -4,6 +4,7 @@ import HTMLTestRunnerCN
 
 from TestCase.testPost import TestPost
 from TestCase.testGet import TestGet
+from Common.email import email
 import getcwd
 
 
@@ -23,4 +24,4 @@ if __name__ == "__main__":
     )
     runner.run(suite)
     fp.close()
-    # Email()
+    # email()
