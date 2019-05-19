@@ -23,7 +23,7 @@ path = getcwd.get_cwd()
 file = os.path.join(path, 'report/xxx接口自动化测试报告.html')
 
 
-def Email():
+def email():
     try:
         # 创建一个带附件的实例
         message = MIMEMultipart()
