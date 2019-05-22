@@ -1,0 +1,29 @@
+2019-05-22 11:16:55,404 - requests - ERROR - 读取配置报错
+Traceback (most recent call last):
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\configparser.py", line 788, in get
+    value = d[option]
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\collections\__init__.py", line 914, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\collections\__init__.py", line 906, in __missing__
+    raise KeyError(key)
+KeyError: 'username'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DG02\PycharmProjects\RequestsTestDemo\Common\base.py", line 69, in config_read
+    config_get = config.get(section, key)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\configparser.py", line 791, in get
+    raise NoOptionError(option, section)
+configparser.NoOptionError: No option 'username' in section: 'sender'
+2019-05-22 11:16:55,407 - requests - INFO - 发件人姓名：None
+2019-05-22 11:16:55,407 - requests - INFO - 发件人邮箱：247412248@qq.com
+2019-05-22 11:16:55,407 - requests - INFO - 收件人邮箱：xx22xxx@163.com;x123xx@163.com
+2019-05-22 11:16:55,408 - requests - INFO - 读取附件
+2019-05-22 11:16:55,409 - requests - INFO - 添加附件
+2019-05-22 11:16:55,528 - requests - INFO - 连接QQ邮箱smtp服务
+2019-05-22 11:16:55,528 - requests - ERROR - 邮件发送失败
+Traceback (most recent call last):
+  File "C:/Users/DG02/PycharmProjects/RequestsTestDemo/Common/sendMail.py", line 53, in send_mail
+    server.login(sender, password)  # 括号中对应的是发件人邮箱账号、邮箱密码
+NameError: name 'sender' is not defined

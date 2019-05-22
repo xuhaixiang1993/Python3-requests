@@ -13,7 +13,7 @@ from Common.base import Base
 
 rq = time.strftime('%Y%m%d', time.localtime(time.time()))  # 获取本地时间 转换成日期
 my_mail = Base()
-sender = my_mail.config_read('sender', 'email')  # 发件人邮箱账号
+email = my_mail.config_read('sender', 'email')  # 发件人邮箱账号
 password = my_mail.config_read('sender', 'password')  # 发件人邮箱密码
 usernmae = my_mail.config_read('sender', 'username')  # 发件人姓名
 users = my_mail.config_options('addressed')  # 收件人
@@ -27,9 +27,9 @@ def send_mail():
     try:
         # 创建一个带附件的实例
         message = MIMEMultipart()
-        message['From'] = formataddr([usernmae, sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
+        message['From'] = formataddr([usernmae, email])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
         log1.info('发件人姓名：%s' % usernmae)
-        log1.info('发件人邮箱：%s' % sender)
+        log1.info('发件人邮箱：%s' % email)
         message['To'] = ';'.join(addressed_eamils)  # 括号里的对应收件人邮箱昵称、收件人邮箱账号
         log1.info('收件人邮箱：' + ';'.join(addressed_eamils))
         message['Subject'] = rq + "xxx接口自动化测试报告.html"  # 邮件的主题，也可以说是标题
@@ -50,10 +50,10 @@ def send_mail():
 
         server = smtplib.SMTP_SSL("smtp.qq.com", 465)  # 发件人邮箱中的SMTP服务器，端口是25
         log1.info('连接QQ邮箱smtp服务')
-        server.login(sender, password)  # 括号中对应的是发件人邮箱账号、邮箱密码
+        server.login(email, password)  # 括号中对应的是发件人邮箱账号、邮箱密码
         log1.info('连接成功')
-        server.sendmail(sender, addressed_eamils, message.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
+        server.sendmail(email, addressed_eamils, message.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
         server.quit()  # 关闭连接
         log1.info("邮件发送成功")
-    except Exception:
+    except BaseException:
         log1.error("邮件发送失败", exc_info=1)

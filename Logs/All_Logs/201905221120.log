@@ -1,0 +1,14 @@
+2019-05-22 11:20:28,065 - requests - INFO - 发件人姓名：xuhaxiiang
+2019-05-22 11:20:28,065 - requests - INFO - 发件人邮箱：247412248@qq.com
+2019-05-22 11:20:28,065 - requests - INFO - 收件人邮箱：247412248.com;kael_xu163.com
+2019-05-22 11:20:28,066 - requests - INFO - 读取附件
+2019-05-22 11:20:28,066 - requests - INFO - 添加附件
+2019-05-22 11:20:28,201 - requests - INFO - 连接QQ邮箱smtp服务
+2019-05-22 11:20:28,459 - requests - INFO - 连接成功
+2019-05-22 11:20:28,615 - requests - ERROR - 邮件发送失败
+Traceback (most recent call last):
+  File "C:/Users/DG02/PycharmProjects/RequestsTestDemo/Common/sendMail.py", line 55, in send_mail
+    server.sendmail(email, addressed_eamils, message.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\smtplib.py", line 881, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'247412248.com': (501, b'Bad address syntax'), 'kael_xu163.com': (501, b'Bad address syntax')}
