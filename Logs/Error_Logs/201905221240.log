@@ -1,0 +1,57 @@
+2019-05-22 12:41:02,257 - requests - ERROR - base  - 56 - «Î«Û ß∞‹!
+Traceback (most recent call last):
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\util\connection.py", line 57, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x00000210E2B12CC0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\util\retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.comuser', port=443): Max retries exceeded with url: /emails (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x00000210E2B12CC0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DG02\PycharmProjects\RequestsTestDemo\Common\base.py", line 48, in post_json
+    r = requests.post(url, json=data, headers=headers, auth=auth, verify=False, timeout=10)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\DG02\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.comuser', port=443): Max retries exceeded with url: /emails (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x00000210E2B12CC0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2019-05-22 12:41:02,283 - requests - ERROR - testPost  - 44 - ≤‚ ‘”√¿˝÷¥––≥ˆ¥Ì£∫≤‚ ‘ ß∞‹
+Traceback (most recent call last):
+  File "C:\Users\DG02\PycharmProjects\RequestsTestDemo\TestCase\testPost.py", line 40, in test_post_two
+    status_code, response_json = postone.post_json(url, data=payloda, auth=auth)
+TypeError: cannot unpack non-iterable NoneType object

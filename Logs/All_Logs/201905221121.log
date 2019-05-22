@@ -1,8 +1,0 @@
-2019-05-22 11:21:54,514 - requests - INFO - 发件人姓名：xuhaixiang
-2019-05-22 11:21:54,514 - requests - INFO - 发件人邮箱：247412248@qq.com
-2019-05-22 11:21:54,515 - requests - INFO - 收件人邮箱：247412248@qq.com;kael_xu@163.com
-2019-05-22 11:21:54,516 - requests - INFO - 读取附件
-2019-05-22 11:21:54,516 - requests - INFO - 添加附件
-2019-05-22 11:21:54,642 - requests - INFO - 连接QQ邮箱smtp服务
-2019-05-22 11:21:54,820 - requests - INFO - 连接成功
-2019-05-22 11:21:55,730 - requests - INFO - 邮件发送成功
