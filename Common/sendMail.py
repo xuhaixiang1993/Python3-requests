@@ -23,7 +23,7 @@ path = getcwd.get_cwd()
 file = os.path.join(path, 'report/xxx接口自动化测试报告.html')
 
 
-def email():
+def send_mail():
     try:
         # 创建一个带附件的实例
         message = MIMEMultipart()
@@ -37,7 +37,7 @@ def email():
         # 邮件正文内容
         message.attach(MIMEText('附件为xxx接口自动化测试报告.html', 'plain', 'utf-8'))
 
-        # 构造附件1，传送当前目录下的 test.txt 文件
+        # 读取文件
         att1 = MIMEText(open(file, 'rb').read(), 'base64', 'utf-8')
         log1.info('读取附件')
         att1["Content-Type"] = 'application/octet-stream'
