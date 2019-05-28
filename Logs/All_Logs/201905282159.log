@@ -1,0 +1,18 @@
+2019-05-28 21:59:30,961 - requests - ERROR - ∂¡»°≈‰÷√±®¥Ì
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\configparser.py", line 788, in get
+    value = d[option]
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\collections\__init__.py", line 914, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\collections\__init__.py", line 906, in __missing__
+    raise KeyError(key)
+KeyError: '1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\Python3-requests\Common\base.py", line 69, in config_read
+    config_get = config.get(section, key)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\configparser.py", line 791, in get
+    raise NoOptionError(option, section)
+configparser.NoOptionError: No option '1' in section: 'test'

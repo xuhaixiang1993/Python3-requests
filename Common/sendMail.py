@@ -16,7 +16,7 @@ my_mail = Base()
 email = my_mail.config_read('sender', 'email')  # 发件人邮箱账号
 password = my_mail.config_read('sender', 'password')  # 发件人邮箱密码
 usernmae = my_mail.config_read('sender', 'username')  # 发件人姓名
-users = my_mail.config_options('addressed')  # 收件人
+users = my_mail.config_read('addressed')  # 收件人
 addressed_eamils = my_mail.get_addkey(users)  # 收件人邮箱
 
 path = getcwd.get_cwd()

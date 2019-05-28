@@ -55,7 +55,7 @@ class Base(unittest.TestCase):
         except BaseException:
             log1.error('请求失败!', exc_info=1)
 
-    def config_read(self, section, key, url=None):
+    def config_read(self, section, key=None, url=None):
         """从配置文件中读取"""
         try:
             # key是url，拼接url返回
@@ -64,12 +64,18 @@ class Base(unittest.TestCase):
                 url = config_url+url
                 log1.info('请求的url：%s' % url)
                 return url
+            # 读取section下所有key
+            elif key is None:
+                config_get = config.options(section)
+                return config_get
             else:
                 # 读取section下key的值
                 config_get = config.get(section, key)
                 return config_get
-        except BaseException:
-            log1.error('读取配置报错', exc_info=1)
+        except configparser.NoSectionError:
+            log1.error('section is not in config', exc_info=1)
+        except configparser.NoOptionError:
+            log1.error('key is not in config', exc_info=1)
 
     def config_write(self, section, key=None, value=None):
         """往配置文件中写入"""
@@ -86,8 +92,10 @@ class Base(unittest.TestCase):
                 with open(config_path, 'w', encoding='utf-8') as f:
                     config.write(f)
                 log1.info('新增section：%s' % section)
-        except BaseException:
-            log1.error('往配置文件中写入报错', exc_info=1)
+        except configparser.NoSectionError:
+            log1.error('section is not in config', exc_info=1)
+        except configparser.NoOptionError:
+            log1.error('key is not in config', exc_info=1)
 
     def config_remove(self, section, key=None):
         """从配置文件中删除"""
@@ -104,8 +112,10 @@ class Base(unittest.TestCase):
                 with open(config_path, 'w', encoding='utf-8') as f:
                     config.write(f)
                 log1.info('删除section:%s' % section)
-        except BaseException:
-            log1.error('配置文件删除报错', exc_info=1)
+        except configparser.NoSectionError:
+            log1.error('section is not in config', exc_info=1)
+        except configparser.NoOptionError:
+            log1.error('key is not in config', exc_info=1)
 
     def dict_value(self, dict1, obj, defaule=None):
         """查找嵌套字典中key对应的值"""
@@ -121,11 +131,6 @@ class Base(unittest.TestCase):
                             return re
         except BaseException:
             log1.error('可能有非字典嵌套', exc_info=1)
-
-    def config_options(self, section):
-        """读取配置文件某section下所有键"""
-        username = config.options(section)
-        return username
 
     def get_addkey(self, user):
         """遍历获得配置文件收件人email"""
