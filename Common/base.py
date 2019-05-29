@@ -6,10 +6,11 @@ import configparser
 
 import getcwd
 from Logs.log import log1
+from Common.myconf import myconf
 
 path = getcwd.get_cwd()
 config_path = os.path.join(path, 'Config/config.ini')
-config = configparser.ConfigParser()
+config = myconf()
 config.read(config_path, encoding='utf-8-sig')
 
 
@@ -32,7 +33,7 @@ class Base(unittest.TestCase):
     def post(self, url, data=None, headers=None, files=None, auth=None):
         """post请求，返回响应码和响应实体"""
         try:
-            r = requests.post(url, data=data, headers=headers,files=files, auth =auth, verify=False, timeout=10)
+            r = requests.post(url, data=data, headers=headers, files=files, auth =auth, verify=False, timeout=10)
             log1.info('请求实体内容：%s' % data)
             status_code = r.status_code
             log1.info('返回状态码：%d' % status_code)
