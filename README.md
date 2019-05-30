@@ -9,7 +9,7 @@ loginTest.py：日志功能测试文件
 
 
 
-![配置文件图片](https://github.com/xuhaixiang1993/Python3-requests/blob/master/picture/config.jpg)
+![配置文件图片](https://github.com/xuhaixiang1993/Python3-requests/blob/master/Picture/config.jpg)
 
 2）配置文件
 
