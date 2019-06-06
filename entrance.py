@@ -4,11 +4,9 @@ import HTMLTestRunnerCN
 
 
 import getcwd
-from Logs.log import log1
+from Common.log import log1
 from TestCase.testPost import TestPost
 from TestCase.testGet import TestGet
-from Common.sendMail import send_mail
-
 
 if __name__ == "__main__":
     suite = unittest.TestSuite()

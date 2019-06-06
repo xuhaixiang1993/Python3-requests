@@ -1,7 +1,7 @@
 import unittest
 
 from Common.base import Base
-from Logs.log import log1
+from Common.log import log1
 
 
 class TestPost(unittest.TestCase):

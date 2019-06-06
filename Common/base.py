@@ -5,12 +5,12 @@ import os
 import configparser
 
 import getcwd
-from Logs.log import log1
-from Common.myconf import myconf
+from Common.log import log1
+from Common.configOverWriter import configOverWrite
 
 path = getcwd.get_cwd()
-config_path = os.path.join(path, 'Config/config.ini')
-config = myconf()
+config_path = os.path.join(path, 'config.ini')
+config = configOverWrite()
 config.read(config_path, encoding='utf-8-sig')
 
 
@@ -68,10 +68,12 @@ class Base(unittest.TestCase):
             # 读取section下所有key
             elif key is None:
                 config_get = config.options(section)
+                log1.info('读取%s下%s=%s' % (section, key, config_get))
                 return config_get
             else:
                 # 读取section下key的值
                 config_get = config.get(section, key)
+                log1.info('读取%s下所有key：%s' % (section, config_get))
                 return config_get
         except configparser.NoSectionError:
             log1.error('section is not in config', exc_info=1)

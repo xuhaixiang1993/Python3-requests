@@ -1,0 +1,7 @@
+2019-06-06 11:08:55,353 - requests - INFO - 新增section：我要
+2019-06-06 11:08:55,354 - requests - INFO - 在section:我要下添加username=测试
+2019-06-06 11:08:55,355 - requests - INFO - 在section:我要下添加password=一下
+2019-06-06 11:08:55,355 - requests - INFO - 请求的url：https://api.github.comtest/test1
+2019-06-06 11:08:55,356 - requests - INFO - 在section：我要下删除键：usrename
+2019-06-06 11:08:55,357 - requests - INFO - 在section：我要下删除键：password
+2019-06-06 11:08:55,357 - requests - INFO - 删除section:我要

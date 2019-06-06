@@ -8,7 +8,7 @@ from email.utils import formataddr
 from email.mime.multipart import MIMEMultipart
 
 import getcwd
-from Logs.log import log1
+from Common.log import log1
 from Common.base import Base
 
 rq = time.strftime('%Y%m%d', time.localtime(time.time()))  # 获取本地时间 转换成日期
