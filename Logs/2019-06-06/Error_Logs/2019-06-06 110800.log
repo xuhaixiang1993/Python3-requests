@@ -1,5 +1,0 @@
-2019-06-06 11:08:00,862 - requests - ERROR - loginTest  - 7 - ±®¥Ì–≈œ¢£∫
-Traceback (most recent call last):
-  File "C:/Users/DG02/PycharmProjects/RequestsTestDemo/Common/loginTest.py", line 4, in <module>
-    r = 10/0
-ZeroDivisionError: division by zero
